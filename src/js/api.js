@@ -21,7 +21,7 @@ function preload(author, project) {
         url = SERVER + "api/repos?liked=1&format=json&limit=50";
         loadingFeatured = true;
     }
-    $.getJSON(url, function (data) {
+    $.getJSON("./dist/res/data.json", function (data) {
         loading = false;
 
         if (data.items.message) {
@@ -129,7 +129,7 @@ function showSuggestions(value) {
             searchUser($(e.currentTarget).data('username'));
             return false;
         });
-        
+
     });
 }
 
@@ -276,12 +276,12 @@ function trackLocation(location){
 function prepare(id, staticid) {
 
     var db = globalDB[id];
-    
+
     if (id == selected)
         updateInfo(true, id);
     else
         updateInfo(false, id, staticid);
-    
+
     var prevScale = 1;
     if (groups[staticid]) {
         var obj, i;

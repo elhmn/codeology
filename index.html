@@ -1,66 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
-
     <head>
-
         <title>Codeology</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
         <link rel="stylesheet" type="text/css" href="/dist/css/style.css">
-
     </head>
 
     <body>
-
         <div id="container"></div>
-        <div class="loader">&nbsp;</div>
-
-        <!-- intro popup -->
-        <div class="intro popup" id="intro">
-            <div class="popup__inner">
-                <h1 class="popup__title  mobile-hide"><div class="logo">Codeology</div></h1>
-                <div class="popup__copy">
-                    <p>Codeology is an open-source project that brings to life the art and science of code. An algorithm analyzes Github projects and creates unique organic forms based on the codebase size and language. As no two pieces of code are alike, no two Codeology forms are alike.</p>
-                </div>
-                <div class="popup__bottom">
-                    <div class="popup__form">
-                        <div class="search">
-                            <div class="search__icon button"><i class="icon-search">Search</i></div>
-                            <input type="search" class="search__input js-search" value="Find a Github user"/>
-                            <ul class="search__list js-search-list"></ul>
-                        </div>
-                    </div><!--
-                    --><div class="popup__explore">
-                        <a href="#" class="button--text js-explore"><span data-text="Start exploring">Start exploring</span></a>
-                    </div>
-                    <p class="popup__colophon mobile-hide"><a href="https://www.braintreepayments.com" target="_blank">Made possible by <strong>Braintree</strong></a></p>
-                </div>
-            </div>
-            <button class="popup__closer js-close-intro"><i class="icon-close">Close</i></button>
-        </div>
-
-        <!-- no results popup -->
-        <div class="noresults popup" id="noresults">
-            <div class="popup__inner">
-                <div class="popup__copy typed">
-                    <p></p>
-                </div>
-                <div class="popup__bottom">
-                    <div class="popup__form">
-                        <div class="search">
-                            <div class="search__icon button"><i class="icon-search">Search</i></div>
-                            <input type="search" class="search__input js-search" value="Find a Github user"/>
-                            <ul class="search__list js-search-list"></ul>
-                        </div>
-                    </div><!--
-                    --><div class="popup__explore">
-                        <a href="#" class="button--text js-explore"><span data-text="Start exploring">Start exploring</span></a>
-                    </div>
-                </div>
-            </div>
-            <button class="popup__closer js-close-intro"><i class="icon-close">Close</i></button>
-        </div>
-
         <!-- about project popup -->
         <div class="info popup" id="info">
             <div class="popup__wrap needs-scroll">
@@ -112,82 +60,12 @@
             <button class="popup__closer js-toggle-download"><i class="icon-close">Close</i></button>
         </div>
 
-        <!-- about Braintree popup -->
-        <div class="popup braintree" id="braintree">
-            <div class="popup__inner">
-                <h2 class="popup__title">Braintree</h2>
-                <div class="popup__copy">
-                    <p>Braintree builds products that make payments easier &mdash; so&nbsp;easy that they fade into the background and enable beautiful commerce experiences to&nbsp;flourish. Everything we've ever made is&nbsp;with developers in&nbsp;mind, so&nbsp;you'll get a&nbsp;simple integration, robust documentation, and&nbsp;stellar support all on&nbsp;your path to&nbsp;accepting every way to&nbsp;pay.</p>
-                    <p><br/><a href="https://www.braintreepayments.com/" class="button--textsmall" target="_blank"><span data-text="Learn more">Learn more</span></a></p>
-                </div>
-            </div>
-            <button class="popup__closer js-toggle-braintree"><i class="icon-close">Close</i></button>
-        </div>
-
-
-        <div id="ui" class="ui">
-
-            <!-- header -->
-            <div class="header">
-                <div class="header__left mobile-hide">
-                    <div class="header__title  js-home"><div class="logo">Codeology</div></div><!--
-                 --><ul class="header__breadcrumbs breadcrumbs"></ul><!--
-                 --><div class="header__search search">
-                        <div class="search__icon button"><i class="icon-search">Search</i></div>
-                        <input type="search" class="search__input js-search" value="Find a Github user"/>
-                        <ul class="search__list js-search-list"></ul>
-                    </div>
-                </div>
-                <div class="header__right mobile-hide">
-                    <nav class="header__links  js-header-links">
-                        <li class="header__link">
-                            <a href="#" class="header__link  js-toggle-info">About the project</a>
-                        </li><!--
-                     --><li class="header__link dropdown">
-                            <a href="#" class="header__link  js-toggle-braintree">About Braintree</a>
-                        </li>
-                    </nav>
-                </div>
-                <div class="header__top desktop-hide">
-                    <div class="header__title  js-home"><div class="logo">Codeology</div></div>
-                    <div class="header__colophon "><a href="#" target="_blank" class="js-toggle-braintree"><strong>About Braintree</strong></a></div>
-                </div>
-                <div class="header__bottom desktop-hide">
-                    <a href="#" class="header__info  button  js-toggle-info"><i class="icon-info"></i></a><!--
-                 --><ul class="header__breadcrumbs  breadcrumbs"></ul><!--
-                 --><div class="header__search  search">
-                        <div class="search__icon button"><i class="icon-search">Search</i></div>
-                        <input type="search" class="search__input  js-search" value="Find a Github user"/>
-                        <ul class="search__list  js-search-list"></ul>
-                    </div><!--
-                 --><a href="#" class="header__share  button  js-share"><i class="icon-share"></i></a>
-                </div>
-                <ul class="header__share-list js-mobile-share desktop-hide"></ul>
-            </div>
-
-            <!-- buttons -->
-            <div class="fullscreen button mobile-hide"><i class="icon-fullscreen">Fullscreen</i></div>
-            <div class="grid button mobile-hide"><i class="icon-grid">Grid</i></div>
-
-            <!-- descriptions -->
-            <div id="descmain" class="grid__item  grid__item--full  desc"></div>
-            <div id="desc0" class="grid__item  desc"></div>
-            <div id="desc1" class="grid__item  desc"></div>
-            <div id="desc2" class="grid__item  desc"></div>
-            <div id="desc3" class="grid__item  desc"></div>
-            <div id="desc4" class="grid__item  desc"></div>
-            <div id="desc5" class="grid__item  desc"></div>
-            <div id="desc6" class="grid__item  desc"></div>
-            <div id="desc7" class="grid__item  desc"></div>
-            <div id="desc8" class="grid__item  desc"></div>
-        </div>
-
-        <!-- original shader by https://github.com/pnitsch -->
+       <!-- original shader by https://github.com/pnitsch -->
         <script type="x-shader/x-vertex" id="vertexShader">
             varying vec2 vUv;
 
             void main() {
-                vUv = uv; 
+                vUv = uv;
                 gl_Position = projectionMatrix * modelViewMatrix * vec4( position, 1.0 );
             }
         </script>
@@ -197,7 +75,7 @@
 
             uniform float mode;
             uniform float rx;
-            uniform float ry; 
+            uniform float ry;
             uniform float charMapSize;
             uniform float numChars;
             uniform sampler2D inputTexture;
@@ -205,7 +83,7 @@
             uniform sampler2D hashTexture;
             uniform vec2 fontSize;
             vec2 imageSize = vec2(500.0, 500.0);
-            vec2 canvasSize = vec2(500.0, 500.0);   
+            vec2 canvasSize = vec2(500.0, 500.0);
 
             const float contrast = 0.0;
             const float colorDepth = 255.0/16.0;
@@ -216,7 +94,7 @@
 
             float h_fs_x, h_fs_y;
 
-            float packColor(vec4 color) {   
+            float packColor(vec4 color) {
                 return (color.r + (color.g*256.0) + (color.b*256.0*256.0) + (color.a*256.0*256.0*256.0));
             }
 
@@ -238,7 +116,7 @@
                 key.r += (c1.r + c1.g + c1.b)/3.0;
 
                 c2 = contrastPix(x+h_fs_x, y);
-                key.g += (c2.r + c2.g + c2.b)/3.0;  
+                key.g += (c2.r + c2.g + c2.b)/3.0;
 
                 c3 = contrastPix(x, y+h_fs_y);
                 key.b += (c3.r + c3.g + c3.b)/3.0;
@@ -302,7 +180,7 @@
 
                 analyseQuads(offset);
                 float index = packColor( key )/256.0;
-                float hash_x = mod(index, hashSize.x); 
+                float hash_x = mod(index, hashSize.x);
                 float hash_y = (index-hash_x)/hashSize.x;
 
                 vec4 char_pix = texture2D(hashTexture, vec2(hash_x/256.0, hash_y/256.0));
@@ -326,15 +204,13 @@
                     else if(mode==8.0) ascii_pix.rgb = vec3(pix.r*ascii_pix.r, pix.g*ascii_pix.g*offset.x, pix.b*ascii_pix.b*offset.y);
                     else if(mode==9.0) ascii_pix.rgb = vec3(1.0-pix.r*ascii_pix.r*offset.x, 1.0-pix.g*ascii_pix.g*offset.x, 1.0-pix.b*ascii_pix.b*offset.y);
                     else if(mode==0.0) ascii_pix.rgb = vec3(pix.r*ascii_pix.r, pix.g*ascii_pix.g,pix.b*ascii_pix.b);
-                } 
+                }
 
                 gl_FragColor = ascii_pix;
             }
         </script>
-        
+
         <script src="/dist/js/libs.min.js"></script>
         <script src="/dist/js/scripts.min.js"></script>
-
     </body>
-
 </html>

@@ -15,6 +15,8 @@ To setup required node modules just run: `npm install`.
 To compile all files to dist folder, run: `grunt`.
 If you need live compiling (separately: images, fonts, js and scss), just run: `grunt watch`.
 
+Open the browser on http://127.0.0.1:8000
+
 ### Release
 To release project with clean code, run: `grunt release`.
 

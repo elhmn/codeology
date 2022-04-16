@@ -50,6 +50,7 @@ function bindUI() {
     });
 
     $('.js-explore, .js-close-intro, .js-home').off('click').on('click', function (e) {
+        console.log("JE SUIS CON 1"); // Debug
         e.preventDefault();
         $('.js-search').val("Find a GitHub user");
         $('.js-search-list').empty();
@@ -74,6 +75,7 @@ function bindUI() {
     });
 
     $('.search__icon').off('click').on('click', function (e) {
+        console.log("JE SUIS CON 2"); // Debug
         e.preventDefault();
         if (!$('.breadcrumbs').is(':empty')) {
             $('.breadcrumbs').empty();
@@ -96,6 +98,7 @@ function bindUI() {
     });
 
     $(".js-toggle-info").off('click').on("click", function (e) {
+        console.log("JE SUIS CON 3"); // Debug
         e.preventDefault();
 
         $('.js-share.is-active').eq(0).trigger('click');
@@ -345,43 +348,10 @@ function setupDropdown() {
 function prepareInput() {
     var elem = $(".js-search");
 
-    // Save current value of element
-    elem.data('oldVal', elem.val());
-
     elem.bind("click", function (event) {
+        console.log("je suis con"); // Debug
         elem.val("");
         $('.js-share.is-active').eq(0).trigger('click');
-    });
-
-    // Look for changes in the value
-    elem.bind("propertychange change keyup input paste", function (event) {
-        // If value has changed...
-        var $this = $(event.currentTarget);
-        if ($this.data('oldVal') != $this.val()) {
-
-            var value = $this.val();
-            $this.data('oldVal', value);
-
-            TweenMax.killDelayedCallsTo(showSuggestions);
-            TweenMax.delayedCall(0.6, showSuggestions, [value]);
-        }
-    });
-
-    elem.bind("blur", function (e) {
-        if ($(e.currentTarget).val() === "") {
-            elem.val("Find a GitHub user");
-            $('.js-search-list').empty();
-        }
-    });
-
-    elem.bind("enterKey", function (event) {
-        var value = $(event.currentTarget).val();
-        searchUser(value);
-    });
-
-    elem.keyup(function (e) {
-        if (e.keyCode == 13)
-            $(this).trigger("enterKey");
     });
 }
 
@@ -476,7 +446,7 @@ function showGrid(user) {
     else if (user)
         updateLocation(user);
     else
-        updateLocation(globalDB[0].username);
+        updateLocation((globalDB && globalDB[0] && globalDB[0].username) || 'featured');
 
     selected = -1;
     updateUI(false);
@@ -526,7 +496,11 @@ function updateBreadcrumbs(main) {
     //console.log(main, selected);
     var html = '';
     if (!loading && globalDB && globalDB.length > 0 && (selected >= 0 || !featured) && introPlayed) {
-        var db = globalDB[Math.max(selected, 0)];
+        selected = 0
+        var db = globalDB[selected];
+        console.log("selected: ", selected); // Debug
+        console.log("globalDB: ", globalDB); // Debug
+        console.log("DB:", db); // Debug
         html += '<li class="breadcrumbs__item">' + db.username + '<a href="#" data-user="featured" class="button js-reset"><i class="icon-reset"></i></a></li>';
         if (selected >= 0 && (!!main || typeof main === 'undefined')) {
             html += '<li class="breadcrumbs__item">' + db.project.substr(0, 50) + '<a href="#" data-user="' + db.username + '" class="button is-project js-reset"><i class="icon-reset"></i></a></li>';

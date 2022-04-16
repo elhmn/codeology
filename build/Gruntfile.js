@@ -43,6 +43,11 @@ module.exports = function(grunt) {
                 tasks: ['fonts']
             },
 
+            res: {
+                files: ['../src/res/*.*'],
+                tasks: ['res']
+            },
+
             html: {
                 files: ['../templates/*.html'],
                 options: {
@@ -70,6 +75,7 @@ module.exports = function(grunt) {
             },
             images: ["../dist/images"],
             fonts: ["../dist/fonts"],
+            res: ["../dist/res"],
             release: ["../dist"]
         },
 
@@ -78,8 +84,14 @@ module.exports = function(grunt) {
             fonts: {
                 expand: true,
                 cwd: '../src/fonts',
-                src: ['**'],
+                src: '**',
                 dest: '../dist/fonts/'
+            },
+            res: {
+                expand: true,
+                cwd: '../src/res',
+                src: '**',
+                dest: '../dist/res/'
             }
         },
 
@@ -169,5 +181,6 @@ module.exports = function(grunt) {
 
     grunt.registerTask('images', ['clean:images', 'svgmin', 'imagemin']);
     grunt.registerTask('fonts',  ['clean:fonts', 'copy:fonts']);
+    grunt.registerTask('res',  ['clean:res', 'copy:res']);
 
 };

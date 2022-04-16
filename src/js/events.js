@@ -10,21 +10,26 @@ var cameraDistance = 650;
 
 var touching = false;
 
+function showSomething() {
+    console.log("Show something"); // Debug
+//     if (rolledover != -1) {
+//         if (selected == -1 && (rolledover < globalDB.length) && viewsNum == 9) {
+//             selected = rolledover;
+            showCreature();
+//         } else {
+//             showGrid();
+//         }
+//     }
+}
+
 function onMouseClick(event) {
     if (event.target.target != '_blank' && $(event.target).attr('href') != "#") {
-        $('.js-share.is-active').eq(0).trigger('click');
-        $('.js-toggle-info.is-active').eq(0).trigger('click');
-        $('.js-toggle-download.is-active').eq(0).trigger('click');
-        $('.js-toggle-braintree.is-active').eq(0).trigger('click');
-
-        if (rolledover != -1) {
-            if (selected == -1 && (rolledover < globalDB.length) && viewsNum == 9) {
-                selected = rolledover;
-                showCreature();
-            } else {
-                showGrid();
-            }
-        }
+        console.log("JE SUIS CON IN MOUSECLICKEVENT"); // Debug
+        showSomething();
+//         $('.js-share.is-active').eq(0).trigger('click');
+//         $('.js-toggle-info.is-active').eq(0).trigger('click');
+//         $('.js-toggle-download.is-active').eq(0).trigger('click');
+//         $('.js-toggle-braintree.is-active').eq(0).trigger('click');
     }
 }
 
@@ -138,10 +143,10 @@ function touchend( ) {
 
 function checkKey(e) {
     var keynum;
-    if (window.event) { // IE					
+    if (window.event) { // IE
         keynum = e.keyCode;
     } else
-    if (e.which) { // Netscape/Firefox/Opera					
+    if (e.which) { // Netscape/Firefox/Opera
         keynum = e.which;
     }
     var k = String.fromCharCode(keynum).toLowerCase();

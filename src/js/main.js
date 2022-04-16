@@ -41,7 +41,6 @@ function init() {
     }
 
     prepareInput();
-
     setupHistory();
     setupScene();
     initPostprocessing();
@@ -51,8 +50,9 @@ function init() {
     updateUI();
     bindUI();
     animate();
-
-    //preload("featured");
+    showSomething();
+//     downloadGif();
+//     preload("featured");
 }
 
 function noWebGL() {
